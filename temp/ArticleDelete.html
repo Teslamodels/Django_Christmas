@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div>
+        <h1>Delete</h1>
+        <form action="" method="post">{% csrf_token %}
+            <p>Do you want to delete {{ article.Title }}</p>
+            <button type="submit" class="btn btn-success">Delete</button>
+        </form>
+    </div>
+
+{% endblock content %}
