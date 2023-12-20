@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div style="text-align: center; text-decoration: none; font-family: sans-serif; color: cornflowerblue;">
+        {% if object.Photo %}
+            <img src="{{ object.Photo.url }}" alt="{{ article.Title }}" width="450px" height="280px" style="border-radius: 10px;">
+        {% endif %}
+            <h2>{{ object.Title }}</h2>
+            <h3>{{ object.Summary }}</h3>
+            <p>{{ object.Date }}</p>
+            <p>{{ object.Author }}</p>
+        
+        <div style="text-align: center; text-decoration: none; color: cornflowerblue; font-family: sans-serif;">
+            <a href="{% url 'update' article.pk %}">Edit</a>
+            <a href="{% url 'delete' article.pk %}">Delete</a>
+            <a href="{% url 'article' %}">All posts</a>
+        </div>
+    </div>
+
+{% endblock content %}

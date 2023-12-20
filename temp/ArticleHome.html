@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div style="font-family: sans-serif;">
+        {% for article in object_list %}
+            <h1><a href="{% url 'detail' article.pk %}">{{ article.Title }}</a></h1>
+            {% if article.Photo %}
+                <img src="{{ article.Photo.url }}" alt="{{ article.Title }}" width="400px" height="230px" style="border-radius: 10px;">
+            {% endif %}
+            <br>
+            <h3>{{ article.Summary }}... <a href="{% url 'detail' article.pk %}">more</a></h3>
+            <h3>{{ article.Summary }}</h3>
+            <p style="color: rgb(100, 96, 96);">{{ article.Date }}</p>
+            <p>{{ article.Author }}</p>
+        {% endfor %}
+    </div>
+
+{% endblock content %}
